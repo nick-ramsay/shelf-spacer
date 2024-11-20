@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shelf Spacer</title>
+    <script>
+        const calc = () => {
+            let shelfWidth = document.getElementById("shelf-width").value;
+            let wallWidth = document.getElementById("wall-width").value;
+            let diff = wallWidth - shelfWidth
+            let margin = diff/2;
+            if (margin <= 0) {
+                document.getElementById("result").innerText = "Looks like the shelf is too big for the wall."
+            } else {
+                document.getElementById("result").innerText = "You should have " + margin + " cm(s) of space between the wall and the edge of the shelf on each side." 
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <p>How wide is your shelf?</p>
+    <input id="shelf-width" name="Width in cm" type="number" step=".1" placeholder="0">
+    <p>How wide is the wall where you're mounting the shelf?</p>
+    <input id="wall-width" name="Width in cm" type="number" step=".1" placeholder="0">
+    <br>
+    <br>
+    <button onclick="calc()">Calculate</button>
+    <br>
+    <br>
+    <p id="result"></p>
+</body>
+
+</html>
